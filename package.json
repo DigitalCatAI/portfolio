@@ -1,0 +1,33 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Выпускной проект курса \"Продвинутая веб-разработка\" школы Loftschool",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-webpack": "^1.5.0",
+    "uglifyjs-webpack-plugin": "^1.2.2",
+    "webpack": "^4.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matvey-phoen1x/portfolio.git"
+  },
+  "author": "Matvey Phoenix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matvey-phoen1x/portfolio/issues"
+  },
+  "homepage": "https://github.com/matvey-phoen1x/portfolio"
+}

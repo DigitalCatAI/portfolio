@@ -15,13 +15,7 @@
 #### Запуск проекта:
 ```shell
 git clone https://github.com/matvey-phoen1x/portfolio.git
-```
-```shell
 cd portfolio
-```
-```shell
 npm i
-```
-```shell
 gulp start
 ```

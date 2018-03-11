@@ -8,7 +8,8 @@ const gulp = require('gulp'),
       browserSync = require('browser-sync').create(),
       gulpWebpack = require('gulp-webpack'),
       webpack = require('webpack'),
-      webpackConfig = require('./webpack.config.js');
+      webpackConfig = require('./webpack.config.js'),
+      svgSprite = require("gulp-svg-sprites");
 
 const paths = {
   root: './build',
@@ -20,10 +21,10 @@ const paths = {
   styles: {
     src: 'src/styles/**/*.scss',
     dest: 'build/assets/styles/',
-    app: './src/styles/app.scss'
+    app: './src/styles/main.scss'
   },
   images: {
-    src: 'src/images/**/*.*',
+    src: 'src/images/',
     dest: 'build/assets/images/'
   },
   scripts: {
@@ -73,9 +74,12 @@ function styles() {
 }
 
 function images() {
-  return gulp.src(paths.images.src)
+  return gulp.src('src/images/icons/*.svg')
+    .pipe(svgSprite( {preview: false} ))
     .pipe(gulp.dest(paths.images.dest))
 }
+
+
 
 exports.templates = templates;
 exports.styles = styles;

@@ -30,6 +30,10 @@ const paths = {
   scripts: {
     src: 'src/scripts/**/*.js',
     dest: 'build/assets/scripts/'
+  },
+  fonts: {
+    src: 'src/fonts/*.*',
+    build: 'build/assets/fonts'
   }
 }
 
@@ -38,6 +42,7 @@ function watch() {
   gulp.watch(paths.templates.src, templates)
   gulp.watch(paths.images.src, images)
   gulp.watch(paths.scripts.src, scripts)
+  gulp.watch(paths.fonts.src, fonts)
 }
 
 function server() {
@@ -49,6 +54,10 @@ function server() {
 
 function clean() {
   return del(paths.root)
+}
+
+function deleteFiles() {
+  return del('build/assets/images/css')
 }
 
 function scripts() {
@@ -79,6 +88,11 @@ function images() {
     .pipe(gulp.dest(paths.images.dest))
 }
 
+function fonts() {
+  return gulp.src(paths.fonts.src)
+    .pipe(gulp.dest(paths.fonts.build))
+}
+
 
 
 exports.templates = templates;
@@ -86,13 +100,16 @@ exports.styles = styles;
 exports.clean = clean;
 exports.images = images;
 exports.scripts = scripts;
+exports.fonts = fonts;
+exports.deleteFiles = deleteFiles;
 
 gulp.task('start', 
   gulp.series(
     clean,
     gulp.parallel(
-      styles, templates, images, scripts
+      styles, templates, images, scripts, fonts
     ),
+    deleteFiles,
     gulp.parallel(
       watch, server
     )

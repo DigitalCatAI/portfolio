@@ -1,22 +1,8 @@
 //variables
-$desktop: rem(1200px);
-$laptop: rem(992px);
-$tablet: rem(768px);
-$phone: rem(480px);
-
-
-//base
-@import "./common/_normalize.scss";
-@import "./common/_base.scss";
-
-//fonts
-@import "./common/_fonts.scss";
-
-//sections
-@import "./pages/_about.scss";
-@import "./pages/_blog.scss";
-@import "./pages/_index.scss";
-@import "./pages/_work.scss";
+$desktops: 1200px;
+$laptops: 992px;
+$tablets: 768px;
+$phones: 480px;
 
 //function
 @function rem($pixels) {
@@ -39,3 +25,20 @@ $phone: rem(480px);
     @content;
   }
 }
+
+//base
+@import "./common/_normalize.scss";
+@import "./common/_base.scss";
+
+//fonts
+@import "./common/_fonts.scss";
+
+
+//all
+@import "./common/_general.scss";
+
+//sections
+@import "./pages/_about.scss";
+@import "./pages/_blog.scss";
+@import "./pages/_index.scss";
+@import "./pages/_work.scss";

@@ -1,0 +1,351 @@
+.info {
+  height: 100vh;
+  background: url('./../images/intro.jpg') center center no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  &__card {
+    flex: 0.85;
+    display: flex;
+    align-items: center;
+  }
+
+  &__card-menu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__card-user {
+    margin-bottom: 35px;
+  }
+}
+
+.info-wrap {
+  background-color: rgba(0, 51, 51, .6);
+  height: 410px;
+  padding: 40px 20px 80px 20px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  min-width: 370px;
+
+  &__front {
+    display: none;
+  }
+
+  &__back {
+    display: block;
+  }
+}
+
+.authorization {
+  display: block;
+  padding: 15px 25px;
+  border: 2px solid white;
+  font-size: 16px;
+  border-radius: 25px;
+  @include roboto(medium);
+  color: white;
+  text-decoration: none;
+  transition: .3s;
+
+  &:hover {
+    background-color: #4e8839;
+  }
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__description {
+    color: white;
+    text-align: center;
+  }
+
+  &__name {
+    @include roboto(medium);
+    font-size: 28px;
+    margin-bottom: 10px;
+
+    &--hero {
+      font-size: 35px;
+    }
+  }
+
+  &__desc {
+    @include roboto(regular);
+    font-size: 16px;
+    opacity: .8;
+  }
+
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  &__pic {
+    height: 100%;
+  }
+}
+
+.menu-card {
+  &__list {
+    display: flex;
+  }
+  
+  &__item {
+    flex: 1;
+    text-align: center;
+    border-right: 2px solid white;
+    white-space: nowrap;
+  
+    &:last-child {
+      border-right: none;
+    }
+  }
+  
+  &__item {
+    background-color: #608d53;
+    transition: .3s;
+  
+    &:hover {
+      background-color: #487e39;
+    }
+  }
+  
+  &__link {
+    display: block;
+    color: white;
+    font-size: 16px;
+    @include roboto(medium);
+    text-decoration: none;
+    padding: 15px 0;
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+
+  &--footer {
+    justify-content: flex-start;
+  }
+
+  &__item {
+    margin-right: 25px;
+  
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  &__img {
+    fill: #fff;
+    width: 30px;
+    height: 24px;
+    opacity: .5;
+    transition: .3s;
+
+    &--footer {
+      fill: white;
+      opacity: .5;
+      transition: .3s;
+    
+      &:hover {
+        opacity: 1;
+        fill: white;
+        transition: .3s;
+      }
+    }
+    
+    &:hover {
+      fill: #4e8839;
+      opacity: 1;
+    }
+  }
+
+  &__img--hero {
+    opacity: 1;
+  }
+}
+
+.auth {
+
+  &__block {
+  margin-bottom: 15px;
+  }
+  
+  &__block-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+
+  &__block-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #f0efe9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__block-text {
+    width: 100%;
+    color: rgba($color: black, $alpha: .5);
+    @include roboto(regular);
+    font-size: 16px;
+    padding: 0 15px;
+    border: white 1px solid;
+  }
+
+  &__block-svg {
+    fill: #c4cbcd;
+
+    &--checkbox {
+      fill: white;
+    }
+  }
+
+  &__block-checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__block-title {
+    @include roboto(regular);
+    font-size: 16px;
+    color: rgba($color: white, $alpha: .8);
+
+      &::selection {
+        background: transparent;
+    }
+  }
+
+  &__block-check {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+
+    &:checked + .auth__block-fake .auth__block-svg--checkbox {
+      transition: .3s;
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__block-svg--checkbox {
+    transition: .3s;
+    width: 0px;
+    height: 0px;
+  }
+
+  &__block-fake {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: #6c9c5a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  &__block-radio {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__block-question {
+    @include roboto(bold);
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    margin-bottom: 8px;
+    
+    &::selection {
+      background: transparent;
+    }
+  }
+}
+
+.radiobutton {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+
+  &__title {
+    @include roboto(regular);
+    font-size: 16px;
+    color: rgba($color: white, $alpha: .8);
+
+    &::selection {
+      background: transparent;
+    }
+  }
+
+  &__real:checked + .radiobutton__fake + .radiobutton__title {
+    color: rgba($color: #6c9c5a, $alpha: .8)
+  }
+
+  &__real {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+  }
+
+  &__fake {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+
+    &:after {
+      content: "";
+      width: 0px;
+      height: 0px;
+      border-radius: 50%;
+      background-color: #6c9c5a;
+      transition: .4s;
+    }
+  }
+
+  &__real:checked + .radiobutton__fake:after {
+    width: 8px;
+    height: 8px;
+    transition: .4s;
+  }
+}

@@ -1,5 +1,22 @@
+html { 
+  box-sizing: border-box; 
+  font-size: 16px;
+
+  @include laptop {
+    font-size: 15px;
+  }
+
+  @include tablet {
+    font-size: 14px;
+  }
+
+  @include phone {
+    font-size: 13px;
+  }
+}
+
 *, *::before, *::after {
-  box-sizing: border-box;
+  box-sizing: inherit; 
 }
 
 body, html {

@@ -9,7 +9,14 @@ const gulp = require('gulp'),
       gulpWebpack = require('gulp-webpack'),
       webpack = require('webpack'),
       webpackConfig = require('./webpack.config.js'),
-      svgSprite = require("gulp-svg-sprites");
+      imagemin = require('gulp-imagemin'),
+      imageminJpegRecompress = require('imagemin-jpeg-recompress'),
+      pngquant = require('imagemin-pngquant'),
+      cache = require('gulp-cache'),
+      svgSprite = require('gulp-svg-sprite'),
+      svgmin = require('gulp-svgmin'),
+      cheerio = require('gulp-cheerio'),
+      replace = require('gulp-replace');
 
 const paths = {
   root: './build',
@@ -40,7 +47,8 @@ const paths = {
 function watch() {
   gulp.watch(paths.styles.src, styles)
   gulp.watch(paths.templates.src, templates)
-  gulp.watch(paths.images.src, images)
+  gulp.watch(paths.images.src + 'icons', svg)
+  gulp.watch(paths.images.src, pic)
   gulp.watch(paths.scripts.src, scripts)
   gulp.watch(paths.fonts.src, fonts)
 }
@@ -54,10 +62,6 @@ function server() {
 
 function clean() {
   return del(paths.root)
-}
-
-function deleteFiles() {
-  return del('build/assets/images/css')
 }
 
 function scripts() {
@@ -82,34 +86,83 @@ function styles() {
     .pipe(gulp.dest(paths.styles.dest))
 }
 
-function images() {
+const config = {
+  mode: {
+    symbol: {
+      sprite: "../sprite.svg",
+      example: {
+        dest: '../spriteDemo.html'
+      }
+    }
+  }
+};
+
+function svg() {
   return gulp.src('src/images/icons/*.svg')
-    .pipe(svgSprite( {preview: false} ))
-    .pipe(gulp.dest(paths.images.dest))
-}
+    .pipe(svgmin({
+      js2svg: {
+        pretty: true
+      }
+    }))
+    .pipe(cheerio({
+      run: function($) {
+        $('[fill]').removeAttr('fill');
+        $('[stroke]').removeAttr('stroke');
+        $('[style]').removeAttr('style');
+      }
+    }))
+    .pipe(replace('&gt;', '>'))
+    .pipe(svgSprite(config))
+    .pipe(gulp.dest('build/assets/images/svg'));
+};
 
 function fonts() {
   return gulp.src(paths.fonts.src)
     .pipe(gulp.dest(paths.fonts.build))
 }
 
+function pic() {
+  return gulp.src('src/images/*.*')
+    .pipe(cache(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imageminJpegRecompress({
+        loops: 5,
+        min: 65,
+        max: 70,
+        quality:'medium'
+      }),
+      imagemin.svgo(),
+      imagemin.optipng({optimizationLevel: 3}),
+      pngquant({quality: '65-70', speed: 5})
+    ],{
+      verbose: true
+    })))
+    .pipe(gulp.dest('build/assets/images'));
+};
 
+gulp.task('clear', function (done) {
+  return cache.clearAll(done);
+});
 
 exports.templates = templates;
 exports.styles = styles;
 exports.clean = clean;
-exports.images = images;
+exports.svg = svg;
 exports.scripts = scripts;
 exports.fonts = fonts;
-exports.deleteFiles = deleteFiles;
+exports.imagemin = imagemin;
+exports.imageminJpegRecompress = imageminJpegRecompress;
+exports.pngquant = pngquant;
+exports.cache = cache;
+exports.pic = pic;
 
 gulp.task('start', 
   gulp.series(
     clean,
     gulp.parallel(
-      styles, templates, images, scripts, fonts
+      styles, templates, svg, scripts, fonts, pic
     ),
-    deleteFiles,
     gulp.parallel(
       watch, server
     )

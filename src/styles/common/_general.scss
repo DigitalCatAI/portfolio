@@ -26,6 +26,21 @@
   text-align: center;
   text-transform: uppercase;
 
+  &--blog {
+    font-size: 63px;
+    margin-bottom: 30px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 90px;
+      height: 3px;
+      background: white;
+      margin: 0 auto;
+      margin-top: 15px;
+    }
+  }
+
   &_index {
     font-size: 35px;
     color: white;

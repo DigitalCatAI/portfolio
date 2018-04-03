@@ -135,6 +135,10 @@
 
   &__left {
     fill: #ebefe2;
+
+    &--white {
+      fill: white;
+    }
   }
 
   &__right {

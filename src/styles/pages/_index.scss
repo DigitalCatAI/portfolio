@@ -91,6 +91,10 @@
     @include roboto(regular);
     font-size: 16px;
     opacity: .8;
+
+    &--blog {
+      opacity: 1;
+    }
   }
 
   &__avatar {

@@ -41,12 +41,21 @@
   overflow: hidden;
   min-width: 370px;
 
+  &--review {
+    background-color: rgba($color: #e0e0dc, $alpha: .6);
+    height: 470px;
+  }
+
   &__front {
-    display: none;
+    display: block;
   }
 
   &__back {
-    display: block;
+    display: none;
+
+    &--review {
+      display: block;
+    }
   }
 }
 
@@ -224,6 +233,10 @@
     font-size: 16px;
     padding: 0 15px;
     border: white 1px solid;
+
+    &--review {
+      padding: 20px 15px;
+    }
   }
 
   &__block-svg {

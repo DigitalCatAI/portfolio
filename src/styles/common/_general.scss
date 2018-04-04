@@ -41,6 +41,23 @@
     }
   }
 
+  &--work {
+    color: #373e42;
+    font-size: 63px;
+    z-index: 10;
+    max-width: 500px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 90px;
+      height: 3px;
+      background: #373e42;
+      margin: 0 auto;
+      margin-top: 15px;
+    }
+  }
+
   &_index {
     font-size: 35px;
     color: white;
@@ -52,6 +69,22 @@
       width: 90px;
       height: 3px;
       background: white;
+      margin: 0 auto;
+      margin-top: 15px;
+    }
+  }
+
+  &--review {
+    font-size: 35px;
+    color: #5d5a55;
+    margin-bottom: 20px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 90px;
+      height: 3px;
+      background: #5d5a55;
       margin: 0 auto;
       margin-top: 15px;
     }
@@ -81,14 +114,19 @@
     transform: translate(-50%, -50%);
     width: 300px;
     height: 200px;
-    z-index: 5;
     justify-content: center;
     align-items: flex-start;
+
+    &--work {
+      width: 400px;
+      align-items: center;
+    }
   }
 
   &__bg {
     fill: #c8de9a;
     z-index: 1;
+    width: 100%;
   }
 }
 

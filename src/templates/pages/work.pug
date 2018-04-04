@@ -3,4 +3,198 @@ extends ../_template
 block variables
   - var title = "Страница с работами"
 
-block content 
+block content
+  section.section.hero
+
+    //- Позиционирование ссылок
+    .hero__link
+      -
+        var socials = [
+          ['https://vk.com/phoen1x_m', 'vk'],
+          ['mailto:matvey.phoen1x@yandex.ru', 'envelope2'],
+          ['https://github.com/matvey-phoen1x', 'github']        
+        ]
+      ul.socials
+        each item in socials
+          li.socials__item
+            a(href=`${item[0]}` target="blank").socials__link
+              svg(class="socials__img socials__img--hero" width="30" height="25")
+                use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#" + `${item[1]}`)
+    
+    //- Позиционирование меню
+    .hero__menu
+
+      a.hamburger(href="#")
+        svg.hamburger__img(width="40" height="40")
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#hamburger")
+
+    //- Позиционирование фонового заголовка
+    .hero__title
+
+      .section-title
+        svg.section-title__img
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#portfolio_header")
+
+    //- Позиционирование карточки
+    .hero__user
+      
+      .user
+        .user__avatar
+          img(src="./assets/images/avatar.jpg").user__pic
+        .user__description
+          .user__name.user__name--hero Матвей Феникс
+          .user__desc Личный сайт веб-разработчика
+
+    //- Позиционирование кнопки скролла
+    .hero__scroll
+
+      a(href="#").arrow-down
+        svg(class="arrow-down__img" width="30" height="25")
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#portf_arrow_down")
+
+  section.section.works
+
+    .triangles
+      svg(class="triangles__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 140" preserveAspectRatio="none")
+        polygon(class="triangles__left triangles__left--white" points="0,0   0,151   500.8,151   500.8,100")
+        polygon(class="triangles__right" points="1000,0   1000,151   500,151   500,100")
+    
+    .work__title
+      .block-title__background.block-title__background--work
+        svg(class="block-title__bg")
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#works_header")
+      .block-title.block-title--work Мои работы
+
+    .work-slider
+      .work-slider__info
+        .work-info
+          .block-subtitle Сайт школы онлайн образования
+          .work-info__text HTML, CSS, Javascript
+          a.work-info__link(href="#")
+            .work-info__button
+              .work-info__icon
+                svg(class="work-info__svg" width="20" height="20")
+                  use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#link")
+
+              .work-info__text-but Посмотреть сайт
+      .work-slider__display
+        .work-img
+          img.work-img__pic(src="./assets/images/work1.png")
+      .work-slider__btns
+        .work-btns
+          .work-btns__left
+            img.work-btns__pic(src="./assets/images/work1.png")
+            .work-btns__cover
+              a.work-btns__link(href="#")
+                svg(class="work-btns__icon" width="30" height="25")
+                  use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#portf_arrow_down")              
+          .work-btns__right
+            img.work-btns__pic(src="./assets/images/work1.png")
+            .work-btns__cover.work-btns__cover--dark
+              a.work-btns__link(href="#")
+                svg(class="work-btns__icon" width="30" height="25")
+                  use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#portf_arrow_up")
+
+  section.section.review
+
+    .review__title
+      .block-title__background.block-title__background--work
+        svg(class="block-title__bg")
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#about_header")
+      .block-title.block-title--work Что обо мне говорят
+
+    ul.review__list
+      li.review__item
+        .review__avatar
+          img.review__pic(src="./assets/images/review1.png")
+        .review__text
+          p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+        .review__autor
+          .review__autor-name Ковальчук Дмитрий
+          .review__autor-prof — основатель Loftschool
+
+      li.review__item
+        .review__avatar
+          img.review__pic(src="./assets/images/review2.png")
+        .review__text
+          p Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+        .review__autor
+          .review__autor-name Сабанцев Владимир
+          .review__autor-prof — преподаватель
+
+    .info__card.review__card
+      .info-wrap.info-wrap--review
+
+        .info-wrap__back.info-wrap__back--review
+          .info__card-login
+          .block-title.block-title--review Связаться со мной
+
+          form.auth 
+
+            .auth__block
+              .auth__block-input
+                input(type="text" placeholder="Имя").auth__block-text.auth__block-text--review
+              .auth__block-input
+                input(type="text" placeholder="Email").auth__block-text.auth__block-text--review
+              .auth__block-input
+                textarea(name="textarea", cols="20", rows="5" type="text" placeholder="Выше сообщение").auth__block-text.auth__block-text--review
+
+            .info__card-menu
+              nav.menu-card
+                -
+                  var auth = [
+                    ['Отправить', '#'],
+                    ['Очистить', '#'],
+                  ]
+                ul.menu-card__list
+                  each item in auth
+                    li.menu-card__item
+                      a.menu-card__link(href=`${item[1]}`) #{item[0]}
+
+    .review__scroll
+      a(href="#").arrow-down
+        svg(class="arrow-down__img" width="30" height="25")
+          use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#portf_arrow_up")
+
+  footer.footer
+    .footer__column
+      .footer__column-wrap
+    
+        .footer__column-text Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool.
+
+    .footer__column
+      .footer__column-wrap
+
+        //- Меню (для гамбургера тоже, с 1 модификатором)
+        nav.menu
+          -
+            var menu = [
+              ['Мои работы', './work.html'],
+              ['Обо мне', './about.html'],
+              ['Блог', './blog.html'],
+              ['Авторизация', './index.html']
+            ]
+
+          ul.menu__list
+            each item in menu
+              li.menu__item
+                a.menu__link(href=`${item[1]}`) #{item[0]}
+
+        ul.socials.socials--footer
+          each item in socials
+            li.socials__item
+              a(href=`${item[0]}` target="blank").socials__link
+                svg(class="socials__img--footer" width="30" height="25")
+                  use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#" + `${item[1]}`)
+
+    .footer__column 
+      .footer__column-wrap
+
+        .footer__column-cit
+          .footer__column-text.footer__column-text--cit 
+            p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете.
+          .footer__column-autor — Martin Golding
+
+    .footer__row
+      .footer-text © Матвей Феникс | Создано с любовью в LoftSchool | 2018                    
+

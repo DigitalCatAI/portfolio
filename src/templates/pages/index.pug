@@ -1,7 +1,111 @@
-extends ../template
+extends ../_template
 
 block variables
-  - var title = "Главная страница"
+  - var title = "Личный сайт веб-разработчика"
 
-block content 
-  h1 Главная страница
+block content
+
+  section.section.info
+    
+    .info__link
+      a.authorization(href="#") Авторизоваться
+
+    .info__card
+
+      .info-wrap
+
+        .info-wrap__front
+
+          .info__card-user
+            .user
+              .user__avatar
+                img(src="./assets/images/avatar.jpg").user__pic
+              .user__description
+                .user__name Матвей Феникс
+                .user__desc Личный сайт веб-разработчика
+
+          .info__card-social
+            -
+              var socials = [
+                ['https://vk.com/phoen1x_m', 'vk'],
+                ['mailto:matvey.phoen1x@yandex.ru', 'envelope2'],
+                ['https://github.com/matvey-phoen1x', 'github']        
+              ]
+            ul.socials
+              each item in socials
+                li.socials__item
+                  a(href=`${item[0]}` target="blank").socials__link
+                    svg(class="socials__img" width="30" height="25")
+                      use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#" + `${item[1]}`)
+
+          .info__card-menu
+            nav.menu-card
+              -
+                var nav = [
+                  ['Мои работы', './work.html'],
+                  ['Обо мне', './about.html'],
+                  ['Блог', './blog.html']
+                ]
+              ul.menu-card__list
+                each item in nav
+                  li.menu-card__item
+                    a.menu-card__link(href=`${item[1]}`) #{item[0]}
+
+        .info-wrap__back
+
+          .info__card-login
+
+          .block-title.block-title_index Авторизуйтесь
+
+          form.auth 
+
+            .auth__block
+              .auth__block-input
+                .auth__block-icon
+                   svg(class="auth__block-svg" width="20" height="20")
+                      use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#login")
+                input(type="text" placeholder="Логин").auth__block-text
+              .auth__block-input 
+                .auth__block-icon
+                   svg(class="auth__block-svg" width="20" height="20")
+                      use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#password")
+                input(type="password" placeholder="Пароль").auth__block-text
+
+            .auth__block
+              label.auth__block-checkbox
+                input.auth__block-check(name="real" type="checkbox")
+                .auth__block-fake
+                  svg(class="auth__block-svg--checkbox")
+                      use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#check")
+                .auth__block-title Я человек
+
+
+            .auth__block
+              .auth__block-question Вы точно не робот?
+              .auth__block-radio
+                label.radiobutton
+                  input.radiobutton__real(name="human" type="radio")
+                  .radiobutton__fake
+                  .radiobutton__title Да
+                label.radiobutton
+                  input.radiobutton__real(name="human" type="radio")
+                  .radiobutton__fake
+                  .radiobutton__title Не уверен
+
+            .info__card-menu
+              nav.menu-card
+                -
+                  var auth = [
+                    ['На главную', '#'],
+                    ['Войти', '#'],
+                  ]
+                ul.menu-card__list
+                  each item in auth
+                    li.menu-card__item
+                      a.menu-card__link(href=`${item[1]}`) #{item[0]}
+
+
+
+
+    .info__text
+      .footer-text © Матвей Феникс | Создано с любовью в LoftSchool | 2018

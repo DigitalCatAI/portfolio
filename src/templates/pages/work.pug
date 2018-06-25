@@ -31,7 +31,7 @@ block content
     //- Позиционирование фонового заголовка
     .hero__title
 
-      .section-title
+      .section-title.section-title__parallax
         svg.section-title__img
           use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#portfolio_header")
 
@@ -112,6 +112,9 @@ block content
         .review__autor
           .review__autor-name Ковальчук Дмитрий
           .review__autor-prof — основатель Loftschool
+        .review__icon
+          //- svg(class="review__icon-svg")
+          //-   use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#vector")
 
       li.review__item
         .review__avatar
@@ -121,6 +124,9 @@ block content
         .review__autor
           .review__autor-name Сабанцев Владимир
           .review__autor-prof — преподаватель
+        .review__icon
+          //- svg(class="review__icon-svg")
+          //-   use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./assets/images/svg/sprite.svg#vector")
 
     .info__card.review__card
       .info-wrap.info-wrap--review

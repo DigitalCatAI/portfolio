@@ -30,6 +30,11 @@
   &__card-user {
     margin-bottom: 35px;
   }
+
+  &__card-social {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .info-wrap {
@@ -62,10 +67,12 @@
 .authorization {
   display: block;
   padding: 15px 25px;
+  background-color: rgba(0,0,0,0.0);
   border: 2px solid white;
   font-size: 16px;
   border-radius: 25px;
   @include roboto(medium);
+  cursor: pointer;
   color: white;
   text-decoration: none;
   transition: .3s;

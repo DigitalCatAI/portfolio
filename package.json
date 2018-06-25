@@ -30,12 +30,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matvey-phoen1x/portfolio.git"
+    "url": "git+https://github.com/mtvphnx/portfolio.git"
   },
   "author": "Matvey Phoenix",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matvey-phoen1x/portfolio/issues"
+    "url": "https://github.com/mtvphnx/portfolio/issues"
   },
-  "homepage": "https://github.com/matvey-phoen1x/portfolio"
+  "homepage": "https://github.com/mtvphnx/portfolio"
 }

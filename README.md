@@ -1,6 +1,6 @@
-# Burger
+# Portfolio
 
-Выпускной проект курса "[Продвинутая веб-разработка](https://loftschool.com/course/web-development)" школы Loftschool
+SPA портфолио веб-разработчика (pug, scss, vue, webpack) + бэкенд (express, mongo)
 
 Демо: https://mtvphnx.github.io/portfolio/build
 
@@ -15,7 +15,7 @@
 
 #### Запуск проекта:
 
-`git clone https://github.com/mtvphnx/portfolio.git`
-`cd portfolio`
-`npm i`
-`gulp start`
+1.  `git clone https://github.com/mtvphnx/portfolio.git`
+2.  `cd portfolio`
+3.  `npm i`
+4.  `gulp start`

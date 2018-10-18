@@ -4,8 +4,6 @@ SPA портфолио веб-разработчика (pug, scss, vue, webpack)
 
 Демо: https://mtvphnx.github.io/portfolio/build
 
-> Наставник - [Андрей Иващенко](https://github.com/andrIvash)
-
 #### Для работы сборки у вас должны быть установлены:
 
 1.  git
